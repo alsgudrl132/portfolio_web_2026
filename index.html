@@ -1,388 +1,916 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ko">
-<head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <title>민형기 포트폴리오</title>
-  <link href="https://fonts.googleapis.com" rel="preconnect"/>
-  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet"/>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet"/>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>민형기 포트폴리오</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&family=Nanum+Gothic:wght@400;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-    html, body {
-      background: #263238;
-      font-family: 'Nanum Gothic', 'Lato', sans-serif;
-    }
+      html,
+      body {
+        background: #263238;
+        font-family: "Nanum Gothic", "Lato", sans-serif;
+      }
 
-    .page-wrapper {
-      width: 1280px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-    }
+      .page-wrapper {
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
 
-    :root {
-      --primary-bg-color: #F0EDE6;
-      --label-color: #7A9E5F;
-      --text-color: #4A4A4A;
-      --title-color: #2C3E50;
-      --subtitle-color: #546E7A;
-      --white: #fff;
-      --highlight-color: #7A9E5F;
-      --tiled-shadow-color: rgba(0,0,0,0.05);
-      --list-icon-color: #7A9E5F;
-      --icon-bg-color: #f1f8e9;
-      --border-color: #eceff1;
-      --overlay-bg-color-2: rgba(240,237,230,0.95);
-    }
+      :root {
+        --primary-bg-color: #f0ede6;
+        --label-color: #7a9e5f;
+        --text-color: #4a4a4a;
+        --title-color: #2c3e50;
+        --subtitle-color: #546e7a;
+        --white: #fff;
+        --highlight-color: #7a9e5f;
+        --tiled-shadow-color: rgba(0, 0, 0, 0.05);
+        --list-icon-color: #7a9e5f;
+        --icon-bg-color: #f1f8e9;
+        --border-color: #eceff1;
+        --overlay-bg-color-2: rgba(240, 237, 230, 0.95);
+      }
 
-    /* 공통 슬라이드 */
-    .slide-container {
-      background-color: var(--primary-bg-color);
-      display: flex;
-      flex-direction: column;
-      height: 720px;
-      justify-content: center;
-      padding: 60px;
-      width: 1280px;
-    }
+      /* 공통 슬라이드 */
+      .slide-container {
+        background-color: var(--primary-bg-color);
+        display: flex;
+        flex-direction: column;
+        min-height: 720px;
+        justify-content: center;
+        padding: 60px;
+        width: 100%;
+      }
 
-    h1, h2, h3 { font-family: 'Nanum Gothic', serif; color: var(--title-color); }
-    h1 { font-size: 80px; line-height: 1.1; font-weight: 700; }
-    h2 { font-size: 56px; margin-bottom: 30px; font-weight: 700; }
-    h3 { font-size: 28px; color: var(--label-color); margin-bottom: 15px; font-weight: 700; }
-    p, li { font-family: 'Nanum Gothic', sans-serif; color: var(--text-color); font-size: 20px; line-height: 1.6; }
+      h1,
+      h2,
+      h3 {
+        font-family: "Nanum Gothic", serif;
+        color: var(--title-color);
+      }
+      h1 {
+        font-size: clamp(36px, 6vw, 80px);
+        line-height: 1.1;
+        font-weight: 700;
+      }
+      h2 {
+        font-size: clamp(26px, 4.5vw, 56px);
+        margin-bottom: 30px;
+        font-weight: 700;
+      }
+      h3 {
+        font-size: clamp(18px, 2.2vw, 28px);
+        color: var(--label-color);
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+      p,
+      li {
+        font-family: "Nanum Gothic", sans-serif;
+        color: var(--text-color);
+        font-size: clamp(15px, 1.6vw, 20px);
+        line-height: 1.6;
+      }
 
-    .subtitle { font-size: 24px; color: var(--subtitle-color); margin-top: 20px; font-weight: 300; }
-    .content-area { display: flex; flex-direction: column; flex-grow: 1; justify-content: center; width: 100%; }
-    .slide-title { width: 100%; text-align: left; }
+      .subtitle {
+        font-size: clamp(16px, 2vw, 24px);
+        color: var(--subtitle-color);
+        margin-top: 20px;
+        font-weight: 300;
+      }
+      .content-area {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: center;
+        width: 100%;
+      }
+      .slide-title {
+        width: 100%;
+        text-align: left;
+      }
 
-    /* 커버 */
-    .full-bg-image { background-size: cover; background-position: center; }
-    .full-bg-image .content-overlay {
-      background: var(--overlay-bg-color-2);
-      padding: 40px 60px;
-      border-radius: 12px;
-      max-width: 800px;
-      border-left: 10px solid var(--label-color);
-    }
+      /* 커버 */
+      .full-bg-image {
+        background-size: cover;
+        background-position: center;
+      }
+      .full-bg-image .content-overlay {
+        background: var(--overlay-bg-color-2);
+        padding: 40px 60px;
+        border-radius: 12px;
+        max-width: 800px;
+        border-left: 10px solid var(--label-color);
+      }
 
-    /* bleed-image */
-    .slide-container.bleed-image-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding: 0;
-    }
-    .slide-container.bleed-image-layout > .content-container {
-      padding: 80px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100%;
-    }
-    .slide-container.bleed-image-layout > .image-container {
-      height: 720px;
-    }
-    .bleed-image-side { width: 100%; height: 100%; object-fit: cover; display: block; }
+      /* bleed-image */
+      .slide-container.bleed-image-layout {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        padding: 0;
+        min-height: 720px;
+      }
+      .slide-container.bleed-image-layout > .content-container {
+        padding: 80px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+      }
+      .slide-container.bleed-image-layout > .image-container {
+        min-height: 400px;
+      }
+      .bleed-image-side {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
 
-    /* 타일 */
-    .tiled-text-icons { display: flex; gap: 30px; width: 100%; align-items: stretch; }
-    .icon-tile {
-      flex: 1;
-      background: #fff;
-      border-radius: 24px;
-      padding: 30px;
-      text-align: center;
-      border-bottom: 8px solid var(--label-color);
-      box-shadow: 0 4px 6px var(--tiled-shadow-color);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .icon-tile .icon {
-      font-size: 50px;
-      color: var(--highlight-color);
-      margin-bottom: 20px;
-      background: var(--icon-bg-color);
-      width: 100px; height: 100px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-    }
+      /* 타일 */
+      .tiled-text-icons {
+        display: flex;
+        gap: 30px;
+        width: 100%;
+        align-items: stretch;
+        flex-wrap: wrap;
+      }
+      .icon-tile {
+        flex: 1;
+        min-width: 200px;
+        background: #fff;
+        border-radius: 24px;
+        padding: 30px;
+        text-align: center;
+        border-bottom: 8px solid var(--label-color);
+        box-shadow: 0 4px 6px var(--tiled-shadow-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .icon-tile .icon {
+        font-size: 50px;
+        color: var(--highlight-color);
+        margin-bottom: 20px;
+        background: var(--icon-bg-color);
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+      }
 
-    /* 리스트 */
-    ul.styled-list { list-style: none; padding: 0; }
-    ul.styled-list li { margin-bottom: 15px; padding-left: 30px; position: relative; }
-    ul.styled-list li::before {
-      content: '\f00c';
-      font-family: 'Font Awesome 6 Free';
-      font-weight: 900;
-      color: var(--list-icon-color);
-      position: absolute;
-      left: 0; top: 2px;
-    }
+      /* 리스트 */
+      ul.styled-list {
+        list-style: none;
+        padding: 0;
+      }
+      ul.styled-list li {
+        margin-bottom: 15px;
+        padding-left: 30px;
+        position: relative;
+      }
+      ul.styled-list li::before {
+        content: "\f00c";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        color: var(--list-icon-color);
+        position: absolute;
+        left: 0;
+        top: 2px;
+      }
 
-    /* 슬라이드 구분선 */
-    .slide-divider {
-      width: 1280px;
-      height: 6px;
-      background: #263238;
-    }
+      /* 슬라이드 구분선 */
+      .slide-divider {
+        width: 100%;
+        height: 6px;
+        background: #263238;
+      }
 
-    /* ===== SLIDE 2 전용 ===== */
-    .s2-wrap {
-      width: 1280px;
-      height: 720px;
-      background: #f7f5f0;
-      display: grid;
-      grid-template-columns: 395px 1fr;
-    }
-    .s2-left {
-      background: #a6c67d;
-      border-bottom-right-radius: 56px;
-      padding: 42px 36px 28px;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .s2-name {
-      width: 100%;
-      font-size: 42px;
-      font-weight: 400;
-      line-height: 1.15;
-      color: #fff;
-      margin-top: 8px;
-      margin-bottom: 18px;
-      letter-spacing: -0.03em;
-      white-space: nowrap;
-    }
-    .s2-job { width: 100%; font-size: 20px; color: #fff5c8; font-weight: 700; margin-bottom: 20px; text-align: center; }
-    .s2-photo { width: 220px; height: 290px; background: #e9ecef; overflow: hidden; margin-bottom: auto; box-shadow: 0 8px 18px rgba(0,0,0,0.08); }
-    .s2-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
-    .s2-contact { width: 100%; margin-top: 16px; font-size: 14px; line-height: 1.55; color: #fff; }
-    .s2-contact .row { display: grid; grid-template-columns: 94px 1fr; gap: 10px; align-items: start; }
-    .s2-contact .lbl { font-weight: 800; color: #fff8cf; font-size: 14px; }
-    .s2-contact a { color: #d0eaff; text-decoration: none; font-size: 14px; }
-    .s2-contact span { font-size: 14px; }
-    .s2-right { padding: 44px 48px 28px 40px; color: #5b5b5b; }
-    .s2-intro { display: grid; grid-template-columns: 210px 1fr; gap: 28px; align-items: start; margin-bottom: 34px; }
-    .s2-q { color: #95b86b; font-size: 24px; font-weight: 800; line-height: 1.35; }
-    .s2-a { font-size: 22px; line-height: 1.6; color: #8a8a8a; padding-top: 4px; }
-    .s2-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px 56px; }
-    .s2-section h3 { margin: 0 0 10px; color: #95b86b; font-size: 24px; font-weight: 800; }
-    .s2-line { width: 100%; height: 1px; background: #d7decf; margin-bottom: 18px; }
-    .s2-item { display: grid; grid-template-columns: 148px 1fr; gap: 10px; margin-bottom: 12px; align-items: start; }
-    .s2-period { color: #a6c67d; font-size: 17px; font-weight: 800; line-height: 1.45; }
-    .s2-desc { color: #5f5f5f; font-size: 15px; line-height: 1.62; white-space: pre-line; }
-  </style>
-</head>
-<body>
-<div class="page-wrapper">
+      /* ===== SLIDE 2 전용 ===== */
+      .s2-wrap {
+        width: 100%;
+        min-height: 720px;
+        background: #f7f5f0;
+        display: grid;
+        grid-template-columns: minmax(280px, 395px) 1fr;
+      }
+      .s2-left {
+        background: #a6c67d;
+        border-bottom-right-radius: 56px;
+        padding: 42px 36px 28px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .s2-name {
+        width: 100%;
+        font-size: clamp(28px, 3.3vw, 42px);
+        font-weight: 400;
+        line-height: 1.15;
+        color: #fff;
+        margin-top: 8px;
+        margin-bottom: 18px;
+        letter-spacing: -0.03em;
+      }
+      .s2-job {
+        width: 100%;
+        font-size: clamp(15px, 1.6vw, 20px);
+        color: #fff5c8;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .s2-photo {
+        width: 220px;
+        height: 290px;
+        background: #e9ecef;
+        overflow: hidden;
+        margin-bottom: auto;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+      }
+      .s2-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .s2-contact {
+        width: 100%;
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 1.55;
+        color: #fff;
+      }
+      .s2-contact .row {
+        display: grid;
+        grid-template-columns: 94px 1fr;
+        gap: 10px;
+        align-items: start;
+      }
+      .s2-contact .lbl {
+        font-weight: 800;
+        color: #fff8cf;
+        font-size: 14px;
+      }
+      .s2-contact a {
+        color: #d0eaff;
+        text-decoration: none;
+        font-size: 14px;
+      }
+      .s2-contact span {
+        font-size: 14px;
+      }
+      .s2-right {
+        padding: 44px 48px 28px 40px;
+        color: #5b5b5b;
+      }
+      .s2-intro {
+        display: grid;
+        grid-template-columns: 210px 1fr;
+        gap: 28px;
+        align-items: start;
+        margin-bottom: 34px;
+      }
+      .s2-q {
+        color: #95b86b;
+        font-size: clamp(18px, 2vw, 24px);
+        font-weight: 800;
+        line-height: 1.35;
+      }
+      .s2-a {
+        font-size: clamp(16px, 1.8vw, 22px);
+        line-height: 1.6;
+        color: #8a8a8a;
+        padding-top: 4px;
+      }
+      .s2-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 42px 56px;
+      }
+      .s2-section h3 {
+        margin: 0 0 10px;
+        color: #95b86b;
+        font-size: clamp(18px, 2vw, 24px);
+        font-weight: 800;
+      }
+      .s2-line {
+        width: 100%;
+        height: 1px;
+        background: #d7decf;
+        margin-bottom: 18px;
+      }
+      .s2-item {
+        display: grid;
+        grid-template-columns: 148px 1fr;
+        gap: 10px;
+        margin-bottom: 12px;
+        align-items: start;
+      }
+      .s2-period {
+        color: #a6c67d;
+        font-size: 17px;
+        font-weight: 800;
+        line-height: 1.45;
+      }
+      .s2-desc {
+        color: #5f5f5f;
+        font-size: 15px;
+        line-height: 1.62;
+        white-space: pre-line;
+      }
 
-  <!-- SLIDE 1: 커버 -->
-  <div class="slide-container full-bg-image" style="background-image:url('https://picture-search.skywork.ai/aippt/image/sheet/aaf2ae8e502d9f0ede20d9d91285fd74_zimage.jpg')">
-    <div class="content-overlay">
-      <h1>민형기 포트폴리오</h1>
-      <p class="subtitle">프론트엔드 &amp; 백엔드 개발자 | Min Hyeong-Gi</p>
-      <p style="margin-top:20px; font-weight:700; color:var(--label-color);">alsgudrl132@gmail.com | 010-3020-9437</p>
-    </div>
-  </div>
-  <div class="slide-divider"></div>
+      /* GitHub 카드 (QR + 링크 통합) */
+      .github-card {
+        display: inline-flex;
+        margin-top: 24px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        width: fit-content;
+      }
+      .github-card .qr-side {
+        background: #fff;
+        padding: 10px 10px 6px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+      }
+      .github-card .qr-side span {
+        font-size: 10px;
+        color: #777;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+      }
+      .github-card .link-side {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 16px 22px;
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        transition: background 0.2s;
+      }
+      .github-card .link-side:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .github-card .link-side i {
+        font-size: 30px;
+      }
 
-  <!-- SLIDE 2: 프로필 -->
-  <div class="s2-wrap">
-    <div class="s2-left">
-      <div class="s2-name">Min Hyeong Gi</div>
-      <div class="s2-job">개발자 ㅣ 민형기</div>
-      <div class="s2-photo"><img src="min.png" alt="프로필 사진"/></div>
-      <div class="s2-contact">
-        <div class="row"><div class="lbl">Birth.</div><span>1997.02.14</span></div>
-        <div class="row"><div class="lbl">E-mail.</div><span>alsgudrl132@gmail.com</span></div>
-        <div class="row"><div class="lbl">Tel.</div><span>010-3020-9437</span></div>
-        <div class="row"><div class="lbl">Git</div><a href="https://github.com/alsgudrl132">github.com/alsgudrl132</a></div>
+      /* ===== 태블릿 (최대 1024px) ===== */
+      @media (max-width: 1024px) {
+        .slide-container {
+          padding: 48px 40px;
+          min-height: auto;
+        }
+        .slide-container.bleed-image-layout > .content-container {
+          padding: 48px 40px;
+        }
+        .s2-right {
+          padding: 32px 32px 24px 28px;
+        }
+        .s2-grid {
+          gap: 28px 36px;
+        }
+        .s2-intro {
+          grid-template-columns: 170px 1fr;
+          gap: 20px;
+        }
+      }
+
+      /* ===== 모바일 (최대 768px) ===== */
+      @media (max-width: 768px) {
+        .slide-container {
+          padding: 36px 20px;
+          min-height: auto;
+        }
+
+        .full-bg-image .content-overlay {
+          padding: 28px 24px;
+          border-left-width: 6px;
+        }
+
+        /* bleed-image 슬라이드: 세로 스택 */
+        .slide-container.bleed-image-layout {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+        .slide-container.bleed-image-layout > .content-container {
+          padding: 36px 24px;
+          height: auto;
+        }
+        .slide-container.bleed-image-layout > .image-container {
+          min-height: 240px;
+          max-height: 300px;
+          overflow: hidden;
+        }
+
+        /* 타일: 세로 스택 */
+        .tiled-text-icons {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .icon-tile {
+          min-width: unset;
+        }
+
+        /* 프로필 슬라이드 2 */
+        .s2-wrap {
+          grid-template-columns: 1fr;
+          min-height: auto;
+        }
+        .s2-left {
+          border-bottom-right-radius: 0;
+          border-bottom-left-radius: 0;
+          padding: 32px 24px 24px;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 20px;
+          align-items: flex-start;
+        }
+        .s2-name {
+          width: 100%;
+          font-size: 28px;
+          margin-bottom: 0;
+          white-space: normal;
+        }
+        .s2-job {
+          width: auto;
+          margin-bottom: 0;
+          text-align: left;
+        }
+        .s2-photo {
+          width: 130px;
+          height: 170px;
+          flex-shrink: 0;
+          margin-bottom: 0;
+        }
+        .s2-contact {
+          flex: 1;
+          min-width: 180px;
+          margin-top: 0;
+        }
+        .s2-right {
+          padding: 28px 20px;
+        }
+        .s2-intro {
+          grid-template-columns: 1fr;
+          gap: 12px;
+          margin-bottom: 24px;
+        }
+        .s2-grid {
+          grid-template-columns: 1fr;
+          gap: 24px;
+        }
+        .s2-item {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+      }
+
+      /* ===== 소형 모바일 (최대 480px) ===== */
+      @media (max-width: 480px) {
+        .slide-container {
+          padding: 28px 16px;
+        }
+        .s2-left {
+          flex-direction: column;
+          align-items: center;
+          padding: 28px 16px;
+        }
+        .s2-photo {
+          width: 160px;
+          height: 210px;
+        }
+        .s2-contact {
+          width: 100%;
+          min-width: unset;
+        }
+        .icon-tile {
+          padding: 24px 20px;
+        }
+        .icon-tile .icon {
+          width: 80px;
+          height: 80px;
+          font-size: 38px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <!-- SLIDE 1: 커버 -->
+      <div
+        class="slide-container full-bg-image"
+        style="
+          background-image: url(&quot;https://picture-search.skywork.ai/aippt/image/sheet/aaf2ae8e502d9f0ede20d9d91285fd74_zimage.jpg&quot;);
+        "
+      >
+        <div class="content-overlay">
+          <h1>민형기 포트폴리오</h1>
+          <p class="subtitle">프론트엔드 &amp; 백엔드 개발자 | Min Hyeong-Gi</p>
+          <p
+            style="
+              margin-top: 20px;
+              font-weight: 700;
+              color: var(--label-color);
+            "
+          >
+            alsgudrl132@gmail.com | 010-3020-9437
+          </p>
+        </div>
+      </div>
+      <div class="slide-divider"></div>
+
+      <!-- SLIDE 2: 프로필 -->
+      <div class="s2-wrap">
+        <div class="s2-left">
+          <div class="s2-name">Min Hyeong Gi</div>
+          <div class="s2-job">개발자 ㅣ 민형기</div>
+          <div class="s2-photo"><img src="min.png" alt="프로필 사진" /></div>
+          <div class="s2-contact">
+            <div class="row">
+              <div class="lbl">Birth.</div>
+              <span>1997.02.14</span>
+            </div>
+            <div class="row">
+              <div class="lbl">E-mail.</div>
+              <span>alsgudrl132@gmail.com</span>
+            </div>
+            <div class="row">
+              <div class="lbl">Tel.</div>
+              <span>010-3020-9437</span>
+            </div>
+            <div class="row">
+              <div class="lbl">Git</div>
+              <a href="https://github.com/alsgudrl132"
+                >github.com/alsgudrl132</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="s2-right">
+          <div class="s2-intro">
+            <div class="s2-q">나를 한 마디로<br />표현한다면 ?</div>
+            <div class="s2-a">
+              사용자에게 보이는 화면부터 실제 동작까지 자연스럽게 연결하는 웹
+              개발자입니다.
+            </div>
+          </div>
+          <div class="s2-grid">
+            <div class="s2-section">
+              <h3>학력사항</h3>
+              <div class="s2-line"></div>
+              <div class="s2-item">
+                <div class="s2-period">2013.03~2016.02</div>
+                <div class="s2-desc">세경 고등학교 디지털 정보전자과 졸업</div>
+              </div>
+              <div class="s2-item">
+                <div class="s2-period">2020.03~2025.08</div>
+                <div class="s2-desc">학점은행제 컴퓨터공학과 졸업</div>
+              </div>
+            </div>
+            <div class="s2-section">
+              <h3>경력사항</h3>
+              <div class="s2-line"></div>
+              <div class="s2-item">
+                <div class="s2-period">2024.08~2024.12</div>
+                <div class="s2-desc">
+                  EBS 온라인클래스 프론트엔드 유지보수 (프리랜서)
+                </div>
+              </div>
+              <div class="s2-item">
+                <div class="s2-period">2025.10~2026.03</div>
+                <div class="s2-desc">
+                  디앤샤인 비상벨 음성인식 웹 제어 도구 개발 - Next.js + Node.js
+                  + Express 기반 - 하드웨어 개발자와 협업 진행
+                </div>
+              </div>
+            </div>
+            <div class="s2-section">
+              <h3>수료과정</h3>
+              <div class="s2-line"></div>
+              <div class="s2-item">
+                <div class="s2-period">2023.03~2023.09</div>
+                <div class="s2-desc">
+                  자바 풀스택 &amp; 빅데이터 융합 개발자
+                </div>
+              </div>
+              <div class="s2-item">
+                <div class="s2-period">2025.05~2025.10</div>
+                <div class="s2-desc">세미콘 설계 / 검증 아카데미</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-divider"></div>
+
+      <!-- SLIDE 3: Boardify 소개 -->
+      <div class="slide-container bleed-image-layout">
+        <div
+          class="content-container"
+          style="background-color: var(--label-color)"
+        >
+          <h2 style="color: #fff">Boardify</h2>
+          <h3 style="color: #fff; opacity: 0.9">협업 칸반 보드 (개인)</h3>
+          <p style="color: #fff; margin-bottom: 30px">
+            트렐로 스타일의 실시간 협업 관리 도구입니다. Supabase를 활용한
+            데이터 동기화를 구현했습니다.
+          </p>
+          <ul class="styled-list">
+            <li style="color: #fff">Vue.js, Nuxt.js, Vuex, Supabase</li>
+            <li style="color: #fff">실시간 드래그 앤 드롭 기능</li>
+            <li style="color: #fff">팀 권한 관리 및 활동 로그</li>
+          </ul>
+          <div class="github-card">
+            <div class="qr-side">
+              <div id="qr-boardify"></div>
+              <span>QR 스캔</span>
+            </div>
+            <a class="link-side" href="https://github.com/alsgudrl132/Boardify" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i>
+              GitHub 보기
+            </a>
+          </div>
+        </div>
+        <div class="image-container">
+          <img
+            class="bleed-image-side"
+            alt="Boardify 칸반 보드"
+            src="https://picture-search.skywork.ai/aippt/image/sheet/f3557e21e2c478967e9f5df5c0cf81f7_zimage.jpg"
+          />
+        </div>
+      </div>
+      <div class="slide-divider"></div>
+
+      <!-- SLIDE 4: Boardify 결과 -->
+      <div class="slide-container">
+        <h2 class="slide-title">Boardify: 결과 및 성과</h2>
+        <div class="content-area">
+          <div class="tiled-text-icons">
+            <div class="icon-tile">
+              <div class="icon"><i class="fa-solid fa-wrench"></i></div>
+              <h3>문제 해결</h3>
+              <p>
+                여러 사용자가 동시에 작업할 때 데이터가 어긋나는 현상을 Vuex와
+                Supabase 실시간 구독 흐름을 맞춰 해결했습니다.
+              </p>
+            </div>
+            <div class="icon-tile">
+              <div class="icon"><i class="fa-solid fa-trophy"></i></div>
+              <h3>배운 점</h3>
+              <p>
+                기능 완성보다 사용자가 실제로 쓰기 편한지를 먼저 생각하는 습관을
+                이 프로젝트에서 길렀습니다.
+              </p>
+            </div>
+            <div class="icon-tile">
+              <div class="icon"><i class="fa-solid fa-lightbulb"></i></div>
+              <h3>보완 계획</h3>
+              <p>모바일 최적화 및 팀 초대 알림 기능을 추가할 예정입니다.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-divider"></div>
+
+      <!-- SLIDE 5: 비상벨 소개 -->
+      <div class="slide-container bleed-image-layout">
+        <div
+          class="content-container"
+          style="background-color: var(--label-color)"
+        >
+          <h2 style="color: #fff; font-size: 44px; white-space: nowrap">
+            비상벨 음성인식 웹 제어 툴
+          </h2>
+          <h3 style="color: #fff; opacity: 0.9">
+            XVF3800 기반 음성 전처리 파라미터 제어 시스템 (실무)
+          </h3>
+          <p style="color: #fff; margin-bottom: 26px">
+            비상벨 제품에 적용되는 음성인식 기능의 성능 조정을 위해, XVF3800
+            칩의 음성 전처리 파라미터를 읽고 쓰기 쉽게 만든 웹 기반 제어
+            도구입니다.
+          </p>
+          <ul class="styled-list">
+            <li style="color: #fff">
+              Next.js, TypeScript, Node.js, Express, WebSocket, UART / I2C
+            </li>
+            <li style="color: #fff">
+              파라미터 Read / Write 제어 및 HEX 프레임 처리
+            </li>
+            <li style="color: #fff">
+              실시간 로그 확인 및 Gain 변화 그래프 시각화
+            </li>
+          </ul>
+          <div class="github-card">
+            <div class="qr-side">
+              <div id="qr-asr"></div>
+              <span>QR 스캔</span>
+            </div>
+            <a class="link-side" href="https://github.com/alsgudrl132/ASR_STM32_WEB_I2C" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i>
+              GitHub 보기
+            </a>
+          </div>
+        </div>
+        <div
+          class="image-container"
+          style="
+            background: #f7f4ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 26px;
+          "
+        >
+          <img
+            alt="비상벨 웹 제어 툴"
+            src="i2c_project_param_crop.png"
+            style="
+              object-fit: contain;
+              max-width: 100%;
+              max-height: 668px;
+              border-radius: 12px;
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            "
+          />
+        </div>
+      </div>
+      <div class="slide-divider"></div>
+
+      <!-- SLIDE 6: 비상벨 상세 -->
+      <div class="slide-container">
+        <h2 class="slide-title">비상벨 웹 제어 툴: 상세 기여</h2>
+        <div class="content-area">
+          <div class="tiled-text-icons">
+            <div class="icon-tile">
+              <div class="icon"><i class="fa-solid fa-sliders"></i></div>
+              <h3>파라미터 제어 UI</h3>
+              <p>
+                마이크 게인, 노이즈 제어, AEC 관련 항목 등 다수의 파라미터를
+                읽고 쓰기 쉽게 웹 UI로 구조화했습니다.
+              </p>
+            </div>
+            <div class="icon-tile">
+              <div class="icon">
+                <i class="fa-solid fa-plug-circle-bolt"></i>
+              </div>
+              <h3>장치 통신 연동</h3>
+              <p>
+                Express, WebSocket, SerialPort 기반으로 UART/I2C 제어 흐름을
+                연결하고, HEX 프레임 생성·전송·응답 파싱 로직을 구현했습니다.
+              </p>
+            </div>
+            <div class="icon-tile">
+              <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
+              <h3>실시간 모니터링</h3>
+              <p>
+                Gain 변화 상태를 그래프로 시각화하고 로그 패널을 함께 구성해,
+                현장에서 튜닝 결과를 바로 확인할 수 있도록 했습니다.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="slide-divider"></div>
+
+      <!-- SLIDE 7: 굴삭기 소개 -->
+      <div class="slide-container bleed-image-layout">
+        <div
+          class="content-container"
+          style="background-color: var(--label-color)"
+        >
+          <h2 style="color: #fff; font-size: 44px; white-space: nowrap">
+            원격 굴삭기 프로젝트
+          </h2>
+          <h3 style="color: #fff; opacity: 0.9">
+            Basys3 FPGA 기반 팀 프로젝트
+          </h3>
+          <p style="color: #fff; margin-bottom: 30px">
+            임베디드 교육 과정에서 진행한 팀 프로젝트입니다. 역할을 나눠 무선
+            통신과 모터 제어를 분담 구현했으며, 서로 다른 파트를 맞추는 협업
+            과정을 경험했습니다.
+          </p>
+          <ul class="styled-list">
+            <li style="color: #fff">Basys3 FPGA, Verilog, UART, PWM</li>
+            <li style="color: #fff">서보모터 5개 / DC 모터 4개 분담 제어</li>
+            <li style="color: #fff">조이스틱 기반 무선 원격 제어</li>
+          </ul>
+          <div class="github-card">
+            <div class="qr-side">
+              <div id="qr-digger"></div>
+              <span>QR 스캔</span>
+            </div>
+            <a class="link-side" href="https://github.com/alsgudrl132/robo-digger-project" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-github"></i>
+              GitHub 보기
+            </a>
+          </div>
+        </div>
+        <div
+          class="image-container"
+          style="
+            background: #f7f4ee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+          "
+        >
+          <img
+            alt="원격 굴삭기 프로젝트"
+            src="robo_digger.png"
+            style="
+              object-fit: contain;
+              max-width: 100%;
+              max-height: 672px;
+              border-radius: 12px;
+              box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+            "
+          />
+        </div>
+      </div>
+      <div class="slide-divider"></div>
+
+      <!-- SLIDE 8: 굴삭기 상세 -->
+      <div class="slide-container">
+        <h2 class="slide-title">원격 굴삭기 프로젝트: 상세 기여</h2>
+        <div class="content-area">
+          <div class="tiled-text-icons">
+            <div class="icon-tile">
+              <div class="icon"><i class="fa-solid fa-signal"></i></div>
+              <h3>무선 통신 담당</h3>
+              <p>
+                HC-05 블루투스 모듈을 이용해 조이스틱 입력 신호를 보드로
+                전달하는 통신 흐름을 맡아 구성했습니다.
+              </p>
+            </div>
+            <div class="icon-tile">
+              <div class="icon"><i class="fa-solid fa-gears"></i></div>
+              <h3>역할 분담과 통합</h3>
+              <p>
+                팀원과 파트를 나눠 개발한 뒤 합치는 과정에서, 서로 다른 모듈을
+                연결하고 동작을 맞추는 협업을 경험했습니다.
+              </p>
+            </div>
+            <div class="icon-tile">
+              <div class="icon"><i class="fa-solid fa-microchip"></i></div>
+              <h3>배운 점</h3>
+              <p>
+                웹과 다른 환경에서 개발해보며, 어떤 분야든 동작 원리를 이해하고
+                팀과 맞춰가는 과정이 중요하다는 걸 느꼈습니다.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="s2-right">
-      <div class="s2-intro">
-        <div class="s2-q">나를 한 마디로<br/>표현한다면 ?</div>
-        <div class="s2-a">사용자에게 보이는 화면부터 실제 동작까지 자연스럽게 연결하는 웹 개발자입니다.</div>
-      </div>
-      <div class="s2-grid">
-        <div class="s2-section">
-          <h3>학력사항</h3>
-          <div class="s2-line"></div>
-          <div class="s2-item">
-            <div class="s2-period">2013.03~2016.02</div>
-            <div class="s2-desc">세경 고등학교 디지털 정보전자과 졸업</div>
-          </div>
-          <div class="s2-item">
-            <div class="s2-period">2020.03~2025.08</div>
-            <div class="s2-desc">학점은행제 컴퓨터공학과 졸업</div>
-          </div>
-        </div>
-        <div class="s2-section">
-          <h3>경력사항</h3>
-          <div class="s2-line"></div>
-          <div class="s2-item">
-            <div class="s2-period">2024.08~2024.12</div>
-            <div class="s2-desc">EBS 온라인클래스 프론트엔드 유지보수 (프리랜서)</div>
-          </div>
-          <div class="s2-item">
-            <div class="s2-period">2025.10~2026.03</div>
-            <div class="s2-desc">디앤샤인
-비상벨 음성인식 웹 제어 도구 개발
-- Next.js + Node.js + Express 기반
-- 하드웨어 개발자와 협업 진행</div>
-          </div>
-        </div>
-        <div class="s2-section">
-          <h3>수료과정</h3>
-          <div class="s2-line"></div>
-          <div class="s2-item">
-            <div class="s2-period">2023.03~2023.09</div>
-            <div class="s2-desc">자바 풀스택 &amp; 빅데이터 융합 개발자</div>
-          </div>
-          <div class="s2-item">
-            <div class="s2-period">2025.05~2025.10</div>
-            <div class="s2-desc">세미콘 설계 / 검증 아카데미</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="slide-divider"></div>
-
-  <!-- SLIDE 3: Boardify 소개 -->
-  <div class="slide-container bleed-image-layout">
-    <div class="content-container" style="background-color:var(--label-color);">
-      <h2 style="color:#fff;">Boardify</h2>
-      <h3 style="color:#fff; opacity:0.9;">협업 칸반 보드 (개인)</h3>
-      <p style="color:#fff; margin-bottom:30px;">트렐로 스타일의 실시간 협업 관리 도구입니다. Supabase를 활용한 데이터 동기화를 구현했습니다.</p>
-      <ul class="styled-list">
-        <li style="color:#fff;">Vue.js, Nuxt.js, Vuex, Supabase</li>
-        <li style="color:#fff;">실시간 드래그 앤 드롭 기능</li>
-        <li style="color:#fff;">팀 권한 관리 및 활동 로그</li>
-      </ul>
-    </div>
-    <div class="image-container">
-      <img class="bleed-image-side" alt="Boardify 칸반 보드" src="https://picture-search.skywork.ai/aippt/image/sheet/f3557e21e2c478967e9f5df5c0cf81f7_zimage.jpg"/>
-    </div>
-  </div>
-  <div class="slide-divider"></div>
-
-  <!-- SLIDE 4: Boardify 결과 -->
-  <div class="slide-container">
-    <h2 class="slide-title">Boardify: 결과 및 성과</h2>
-    <div class="content-area">
-      <div class="tiled-text-icons">
-        <div class="icon-tile">
-          <div class="icon"><i class="fa-solid fa-wrench"></i></div>
-          <h3>문제 해결</h3>
-          <p>여러 사용자가 동시에 작업할 때 데이터가 어긋나는 현상을 Vuex와 Supabase 실시간 구독 흐름을 맞춰 해결했습니다.</p>
-        </div>
-        <div class="icon-tile">
-          <div class="icon"><i class="fa-solid fa-trophy"></i></div>
-          <h3>배운 점</h3>
-          <p>기능 완성보다 사용자가 실제로 쓰기 편한지를 먼저 생각하는 습관을 이 프로젝트에서 길렀습니다.</p>
-        </div>
-        <div class="icon-tile">
-          <div class="icon"><i class="fa-solid fa-lightbulb"></i></div>
-          <h3>보완 계획</h3>
-          <p>모바일 최적화 및 팀 초대 알림 기능을 추가할 예정입니다.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="slide-divider"></div>
-
-  <!-- SLIDE 5: 비상벨 소개 -->
-  <div class="slide-container bleed-image-layout">
-    <div class="content-container" style="background-color:var(--label-color);">
-      <h2 style="color:#fff; font-size:44px; white-space:nowrap;">비상벨 음성인식 웹 제어 툴</h2>
-      <h3 style="color:#fff; opacity:0.9;">XVF3800 기반 음성 전처리 파라미터 제어 시스템 (실무)</h3>
-      <p style="color:#fff; margin-bottom:26px;">비상벨 제품에 적용되는 음성인식 기능의 성능 조정을 위해, XVF3800 칩의 음성 전처리 파라미터를 읽고 쓰기 쉽게 만든 웹 기반 제어 도구입니다.</p>
-      <ul class="styled-list">
-        <li style="color:#fff;">Next.js, TypeScript, Node.js, Express, WebSocket, UART / I2C</li>
-        <li style="color:#fff;">파라미터 Read / Write 제어 및 HEX 프레임 처리</li>
-        <li style="color:#fff;">실시간 로그 확인 및 Gain 변화 그래프 시각화</li>
-      </ul>
-    </div>
-    <div class="image-container" style="background:#f7f4ee; display:flex; align-items:center; justify-content:center; padding:26px;">
-      <img alt="비상벨 웹 제어 툴" src="i2c_project_param_crop.png" style="object-fit:contain; max-width:100%; max-height:668px; border-radius:12px; box-shadow:0 8px 16px rgba(0,0,0,0.08);"/>
-    </div>
-  </div>
-  <div class="slide-divider"></div>
-
-  <!-- SLIDE 6: 비상벨 상세 -->
-  <div class="slide-container">
-    <h2 class="slide-title">비상벨 웹 제어 툴: 상세 기여</h2>
-    <div class="content-area">
-      <div class="tiled-text-icons">
-        <div class="icon-tile">
-          <div class="icon"><i class="fa-solid fa-sliders"></i></div>
-          <h3>파라미터 제어 UI</h3>
-          <p>마이크 게인, 노이즈 제어, AEC 관련 항목 등 다수의 파라미터를 읽고 쓰기 쉽게 웹 UI로 구조화했습니다.</p>
-        </div>
-        <div class="icon-tile">
-          <div class="icon"><i class="fa-solid fa-plug-circle-bolt"></i></div>
-          <h3>장치 통신 연동</h3>
-          <p>Express, WebSocket, SerialPort 기반으로 UART/I2C 제어 흐름을 연결하고, HEX 프레임 생성·전송·응답 파싱 로직을 구현했습니다.</p>
-        </div>
-        <div class="icon-tile">
-          <div class="icon"><i class="fa-solid fa-chart-line"></i></div>
-          <h3>실시간 모니터링</h3>
-          <p>Gain 변화 상태를 그래프로 시각화하고 로그 패널을 함께 구성해, 현장에서 튜닝 결과를 바로 확인할 수 있도록 했습니다.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="slide-divider"></div>
-
-  <!-- SLIDE 7: 굴삭기 소개 -->
-  <div class="slide-container bleed-image-layout">
-    <div class="content-container" style="background-color:var(--label-color);">
-      <h2 style="color:#fff; font-size:44px; white-space:nowrap;">원격 굴삭기 프로젝트</h2>
-      <h3 style="color:#fff; opacity:0.9;">Basys3 FPGA 기반 팀 프로젝트</h3>
-      <p style="color:#fff; margin-bottom:30px;">임베디드 교육 과정에서 진행한 팀 프로젝트입니다. 역할을 나눠 무선 통신과 모터 제어를 분담 구현했으며, 서로 다른 파트를 맞추는 협업 과정을 경험했습니다.</p>
-      <ul class="styled-list">
-        <li style="color:#fff;">Basys3 FPGA, Verilog, UART, PWM</li>
-        <li style="color:#fff;">서보모터 5개 / DC 모터 4개 분담 제어</li>
-        <li style="color:#fff;">조이스틱 기반 무선 원격 제어</li>
-      </ul>
-    </div>
-    <div class="image-container" style="background:#f7f4ee; display:flex; align-items:center; justify-content:center; padding:24px;">
-      <img alt="원격 굴삭기 프로젝트" src="robo_digger.png" style="object-fit:contain; max-width:100%; max-height:672px; border-radius:12px; box-shadow:0 8px 16px rgba(0,0,0,0.08);"/>
-    </div>
-  </div>
-  <div class="slide-divider"></div>
-
-  <!-- SLIDE 8: 굴삭기 상세 -->
-  <div class="slide-container">
-    <h2 class="slide-title">원격 굴삭기 프로젝트: 상세 기여</h2>
-    <div class="content-area">
-      <div class="tiled-text-icons">
-        <div class="icon-tile">
-          <div class="icon"><i class="fa-solid fa-signal"></i></div>
-          <h3>무선 통신 담당</h3>
-          <p>HC-05 블루투스 모듈을 이용해 조이스틱 입력 신호를 보드로 전달하는 통신 흐름을 맡아 구성했습니다.</p>
-        </div>
-        <div class="icon-tile">
-          <div class="icon"><i class="fa-solid fa-gears"></i></div>
-          <h3>역할 분담과 통합</h3>
-          <p>팀원과 파트를 나눠 개발한 뒤 합치는 과정에서, 서로 다른 모듈을 연결하고 동작을 맞추는 협업을 경험했습니다.</p>
-        </div>
-        <div class="icon-tile">
-          <div class="icon"><i class="fa-solid fa-microchip"></i></div>
-          <h3>배운 점</h3>
-          <p>웹과 다른 환경에서 개발해보며, 어떤 분야든 동작 원리를 이해하고 팀과 맞춰가는 과정이 중요하다는 걸 느꼈습니다.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-</body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script>
+    var qrTargets = [
+      { id: 'qr-boardify',  url: 'https://github.com/alsgudrl132/Boardify' },
+      { id: 'qr-asr',       url: 'https://github.com/alsgudrl132/ASR_STM32_WEB_I2C' },
+      { id: 'qr-digger',    url: 'https://github.com/alsgudrl132/robo-digger-project' },
+    ];
+    qrTargets.forEach(function(t) {
+      new QRCode(document.getElementById(t.id), {
+        text: t.url,
+        width: 90,
+        height: 90,
+        colorDark: '#263238',
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M,
+      });
+    });
+  </script>
+  </body>
 </html>
