@@ -656,7 +656,12 @@
               <div id="qr-boardify"></div>
               <span>QR 스캔</span>
             </div>
-            <a class="link-side" href="https://github.com/alsgudrl132/Boardify" target="_blank" rel="noopener noreferrer">
+            <a
+              class="link-side"
+              href="https://github.com/alsgudrl132/Boardify"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fa-brands fa-github"></i>
               GitHub 보기
             </a>
@@ -736,7 +741,12 @@
               <div id="qr-asr"></div>
               <span>QR 스캔</span>
             </div>
-            <a class="link-side" href="https://github.com/alsgudrl132/ASR_STM32_WEB_I2C" target="_blank" rel="noopener noreferrer">
+            <a
+              class="link-side"
+              href="https://github.com/alsgudrl132/ASR_STM32_WEB_I2C"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fa-brands fa-github"></i>
               GitHub 보기
             </a>
@@ -830,7 +840,12 @@
               <div id="qr-digger"></div>
               <span>QR 스캔</span>
             </div>
-            <a class="link-side" href="https://github.com/alsgudrl132/robo-digger-project" target="_blank" rel="noopener noreferrer">
+            <a
+              class="link-side"
+              href="https://github.com/alsgudrl132/robo-digger-project"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <i class="fa-brands fa-github"></i>
               GitHub 보기
             </a>
@@ -893,24 +908,131 @@
           </div>
         </div>
       </div>
+      <div class="slide-divider"></div>
+
+      <!-- SLIDE 9: AGRO_DRY 소개 -->
+      <div class="slide-container bleed-image-layout">
+        <div
+          class="content-container"
+          style="background-color: var(--label-color)"
+        >
+          <h2 style="color: #fff; font-size: 44px; white-space: nowrap">
+            AGRO_DRY
+          </h2>
+          <h3 style="color: #fff; opacity: 0.9">
+            STM32 기반 환경 제어 시스템 (개인)
+          </h3>
+          <p style="color: #fff; margin-bottom: 30px">
+            농산물 건조기·가금류 육추기(Poultry Brooder)로 전용한 임베디드
+            온도·습도 자동 제어 시스템입니다. STM32F411RE Nucleo 보드로 DHT22
+            센서를 읽고 릴레이로 열원을 ON/OFF 제어하며, LCD와 버튼으로 현장에서
+            직접 운용합니다. 실제 가족 농가에 투입해 운용 중입니다.
+          </p>
+          <ul class="styled-list">
+            <li style="color: #fff">STM32F411RE · C (HAL) · I2C · IWDG</li>
+            <li style="color: #fff">DHT22 온습도 센서 + 릴레이 제어</li>
+            <li style="color: #fff">
+              16×2 LCD 상태 표시 · 버튼 UI로 목표 온도 설정
+            </li>
+          </ul>
+          <div class="github-card">
+            <div class="qr-side">
+              <div id="qr-agrodry"></div>
+              <span>QR 스캔</span>
+            </div>
+            <a
+              class="link-side"
+              href="https://github.com/alsgudrl132/AGRO_DRY"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <i class="fa-brands fa-github"></i>
+              GitHub 보기
+            </a>
+          </div>
+        </div>
+        <div
+          class="image-container"
+          style="
+            background: #f7f4ee;
+            display: grid;
+            grid-template-rows: 1fr 1fr;
+            gap: 0;
+          "
+        >
+          <img
+            alt="가금류 육추기 운용 중"
+            src="agro_dry2.jpeg"
+            style="width: 100%; height: 100%; object-fit: cover; display: block"
+          />
+          <img
+            alt="LCD 동작 화면 — T:33.0C HEAT:ON"
+            src="agro_dry1.jpeg"
+            style="width: 100%; height: 100%; object-fit: cover; display: block"
+          />
+        </div>
+      </div>
+      <div class="slide-divider"></div>
+
+      <!-- SLIDE 10: AGRO_DRY 상세 -->
+      <div class="slide-container">
+        <h2 class="slide-title">AGRO_DRY: 상세 구현</h2>
+        <div class="content-area">
+          <div class="tiled-text-icons">
+            <div class="icon-tile">
+              <div class="icon">
+                <i class="fa-solid fa-temperature-half"></i>
+              </div>
+              <h3>온도 제어 로직</h3>
+              <p>
+                DHT22로 온습도 실시간 측정. 히스테리시스 방식으로 목표 온도 ±2°C
+                기준 릴레이 ON/OFF 제어 — 과잉 반복 방지.
+              </p>
+            </div>
+            <div class="icon-tile">
+              <div class="icon"><i class="fa-solid fa-shield-halved"></i></div>
+              <h3>안전 로직</h3>
+              <p>
+                센서 오류 즉시 릴레이 OFF, 5회 연속 오류 영구 잠금. 75°C 과열
+                리밋, IWDG 와치독(4초), 부팅 시 릴레이 OFF 확정.
+              </p>
+            </div>
+            <div class="icon-tile">
+              <div class="icon"><i class="fa-solid fa-seedling"></i></div>
+              <h3>실 배포 & 확장</h3>
+              <p>
+                가족 농가 고추 건조에 투입 중. 동일 시스템을 가금류 육추기에
+                적용, 설정값만 조정해 별도 수정 없이 운용 가능함을 확인.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-  <script>
-    var qrTargets = [
-      { id: 'qr-boardify',  url: 'https://github.com/alsgudrl132/Boardify' },
-      { id: 'qr-asr',       url: 'https://github.com/alsgudrl132/ASR_STM32_WEB_I2C' },
-      { id: 'qr-digger',    url: 'https://github.com/alsgudrl132/robo-digger-project' },
-    ];
-    qrTargets.forEach(function(t) {
-      new QRCode(document.getElementById(t.id), {
-        text: t.url,
-        width: 90,
-        height: 90,
-        colorDark: '#263238',
-        colorLight: '#ffffff',
-        correctLevel: QRCode.CorrectLevel.M,
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+      var qrTargets = [
+        { id: "qr-boardify", url: "https://github.com/alsgudrl132/Boardify" },
+        {
+          id: "qr-asr",
+          url: "https://github.com/alsgudrl132/ASR_STM32_WEB_I2C",
+        },
+        {
+          id: "qr-digger",
+          url: "https://github.com/alsgudrl132/robo-digger-project",
+        },
+        { id: "qr-agrodry", url: "https://github.com/alsgudrl132/AGRO_DRY" },
+      ];
+      qrTargets.forEach(function (t) {
+        new QRCode(document.getElementById(t.id), {
+          text: t.url,
+          width: 90,
+          height: 90,
+          colorDark: "#263238",
+          colorLight: "#ffffff",
+          correctLevel: QRCode.CorrectLevel.M,
+        });
       });
-    });
-  </script>
+    </script>
   </body>
 </html>
